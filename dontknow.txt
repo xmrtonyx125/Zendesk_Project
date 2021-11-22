@@ -1,0 +1,86 @@
+$ curl https://zendeskcodingchallenge2945.zendesk.com/api/v2/imports/tickets/create_many.json -v -u phanthanhan2107@gmail.com:Xmrtonyxdjrun90@@ -X POST -d @tickets.json -H "Content-Type:application/json"
+Note: Unnecessary use of -X or --request, POST is already inferred.
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0*   Trying 104.16.53.111:443...
+* Connected to zendeskcodingchallenge2945.zendesk.com (104.16.53.111) port 443 (#0)
+* ALPN, offering h2
+* ALPN, offering http/1.1
+* successfully set certificate verify locations:
+*  CAfile: C:/Program Files/Git/mingw64/ssl/certs/ca-bundle.crt
+*  CApath: none
+} [5 bytes data]
+* TLSv1.3 (OUT), TLS handshake, Client hello (1):
+} [512 bytes data]
+* TLSv1.3 (IN), TLS handshake, Server hello (2):
+{ [104 bytes data]
+* TLSv1.2 (IN), TLS handshake, Certificate (11):
+{ [2333 bytes data]
+* TLSv1.2 (IN), TLS handshake, Server key exchange (12):
+{ [115 bytes data]
+* TLSv1.2 (IN), TLS handshake, Server finished (14):
+{ [4 bytes data]
+* TLSv1.2 (OUT), TLS handshake, Client key exchange (16):
+} [37 bytes data]
+* TLSv1.2 (OUT), TLS change cipher, Change cipher spec (1):
+} [1 bytes data]
+* TLSv1.2 (OUT), TLS handshake, Finished (20):
+} [16 bytes data]
+* TLSv1.2 (IN), TLS handshake, Finished (20):
+{ [16 bytes data]
+* SSL connection using TLSv1.2 / ECDHE-ECDSA-CHACHA20-POLY1305
+* ALPN, server accepted to use h2
+* Server certificate:
+*  subject: C=US; ST=California; L=San Francisco; O=Cloudflare, Inc.; CN=zendeskcodingchallenge2945.zendesk.com
+*  start date: Nov 21 00:00:00 2021 GMT
+*  expire date: Nov 20 23:59:59 2022 GMT
+*  subjectAltName: host "zendeskcodingchallenge2945.zendesk.com" matched cert's "zendeskcodingchallenge2945.zendesk.com"
+*  issuer: C=US; O=Cloudflare, Inc.; CN=Cloudflare Inc ECC CA-3
+*  SSL certificate verify ok.
+* Using HTTP2, server supports multiplexing
+* Connection state changed (HTTP/2 confirmed)
+* Copying HTTP/2 data in stream buffer to connection buffer after upgrade: len=0
+* Server auth using Basic with user 'phanthanhan2107@gmail.com'
+* Using Stream ID: 1 (easy handle 0x19ca2190110)
+} [5 bytes data]
+> POST /api/v2/imports/tickets/create_many.json HTTP/2
+> Host: zendeskcodingchallenge2945.zendesk.com
+> authorization: Basic cGhhbnRoYW5oYW4yMTA3QGdtYWlsLmNvbTpYbXJ0b255eGRqcnVuOTBAQA==
+> user-agent: curl/7.78.0
+> accept: */*
+> content-type:application/json
+> content-length: 88218
+>
+{ [5 bytes data]
+* Connection state changed (MAX_CONCURRENT_STREAMS == 256)!
+} [5 bytes data]
+* We are completely uploaded and fine
+{ [5 bytes data]
+< HTTP/2 200
+< date: Sun, 21 Nov 2021 16:49:29 GMT
+< content-type: application/json; charset=UTF-8
+< x-zendesk-api-version: v2
+< x-zendesk-application-version: v10423
+< x-frame-options: SAMEORIGIN
+< x-rate-limit: 400
+< x-rate-limit-remaining: 399
+< strict-transport-security: max-age=31536000;
+< etag: W/"fc22f294b6739cccdf1ead7b1cb868e5"
+< cache-control: max-age=0, private, must-revalidate
+< x-zendesk-origin-server: classic-app-server-58f4b7fcbf-mcdfr
+< x-request-id: 6b1b695d0bc8f339-ORD
+< x-runtime: 0.319305
+< x-zendesk-zorg: yes
+< x-request-id: 6b1b695d0bc8f339-ORD
+< x-content-type-options: nosniff
+< cf-cache-status: DYNAMIC
+< expect-ct: max-age=604800, report-uri="https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct"
+< report-to: {"endpoints":[{"url":"https:\/\/a.nel.cloudflare.com\/report\/v3?s=pqrS0u7pF4f8ISO6Fn1NmfpEyXwDZ0iahZPm9DELMOBf1XzZJqRAriYv%2F6rqF8kkgGxvPcqlKAvh4jPzocIirOXSIG2NLzeFSo3DQGwojDNw3uLJLgSUCVRFt5t0mjCskF%2FueQi7J%2BtqjaFXa7X6WPUjOLnA5qOH"}],"group":"cf-nel","max_age":604800}
+< nel: {"success_fraction":0.01,"report_to":"cf-nel","max_age":604800}
+< set-cookie: __cfruid=89c693ad0a8ab0e3c092f847e0111911247cc338-1637513369; path=/; domain=.zendeskcodingchallenge2945.zendesk.com; HttpOnly; Secure; SameSite=None
+< server: cloudflare
+< cf-ray: 6b1b695d0bc8f339-ATL
+<
+{ [246 bytes data]
+100 88464    0   246  100 88218    258  92526 --:--:-- --:--:-- --:--:-- 92924{"job_status":{"id":"234463acc510dc8aa9ae9b723db786c7","url":"https://zendeskcodingchallenge2945.zendesk.com/api/v2/job_statuses/234463acc510dc8aa9ae9b723db786c7.json","total":null,"progress":null,"status":"queued","message":null,"results":null}}
+* Connection #0 to host zendeskcodingchallenge2945.zendesk.com left intact
