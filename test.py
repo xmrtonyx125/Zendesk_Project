@@ -1,1 +1,4 @@
-print("*" * 30)
+from prompt import Menu
+
+menu = Menu()
+menu.display()

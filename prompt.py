@@ -34,13 +34,14 @@ class Menu():
 
     def login_Prompt(self):
         print("Enter your Zendesk account")
+        subdomain = input("Subdomain: ")
         email = input ("Email: ")
         password = input("Password: ")
-        return email, password
+        return subdomain, email, password
     
     def status_401(self):
         print("-" * 41)
-        print("|   Couldn't authenticate you. Code 401  |")
+        print("|   Couldn't authenticate you. Code 401 |")
         print("| The username or password is incorrect |")
         print("-" * 41)
     
@@ -69,3 +70,7 @@ class Menu():
         print("*           Search again (yes/no):          *")
         print("* Press 3 or 'home' to return to main page  *")
         print("*" * 45)
+
+    def display(self):
+        print(f"Ticket ID   Subject { ' ' * 45} Created At { ' ' * 15} Assigned By")
+        print("_" * 120)
