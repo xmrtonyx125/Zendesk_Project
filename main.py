@@ -84,11 +84,11 @@ elif (return_api_code == 200):
                         increase_tick_num = ticket_number-1
                         if (ticket_number < 0 or ticket_number > number_of_subject):
                             print(f"Out of range. Choose from 1 to {number_of_subject}")
-                            
+                            break
                         menu.display()
                         print (f"{ticket_number : <10}  {subject[increase_tick_num] : <52}  {created_at[increase_tick_num] : <25}  {assignee_id[increase_tick_num] : <20}")
                         print('\n')
-                        break;
+                        break
                 
                 menu.printMenu()
                 menu_input = input ("Your input: ")
