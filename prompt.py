@@ -4,11 +4,13 @@ class Menu():
         pass
 
     def printMenu(self):
-        print("Select view options:")
-        print(" * Press 1 to view all tickets")
-        print(" * Press 2 to view a ticket")
-        print(" * Type 'quit' to exit\n")
-        
+        print("*" * 37)
+        print("Select view options:                *")
+        print(" * Press 1 to view all tickets      *")
+        print(" * Press 2 to view a ticket         *")
+        print(" * Type 'quit' to exit              *")
+        print("*" * 37)
+
 
     def exit_Prompt(self):
         print("*" * 38)
@@ -55,12 +57,15 @@ class Menu():
 
     def all_tickets_prompt(self):
         print("*" * 54)
-        print("*    Please choose from the option below             *")
+        print("*    ALL TICKETS LOADED. Choose from options below   *")
         print("*    Press 1 or 'next' to view the next page         *")
         print("*    Press 2 or 'prev' to view the previous page     *")
         print("*    Press 3 or 'home' to return to main page        *")
         print("*    Type 'quit' to exit                             *")
         print("*" * 54)
-        
+
     def a_ticket_prompt(self):
-        print("Enter a ticket number: ")
+        print("*" * 45)
+        print("*           Search again (yes/no):          *")
+        print("* Press 3 or 'home' to return to main page  *")
+        print("*" * 45)
