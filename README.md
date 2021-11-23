@@ -1,4 +1,5 @@
-# Zendesk_Project
+# Team_alpha
+
 <!-- TABLE OF CONTENTS -->
 ## Table of Contents
 <details open="open">
@@ -31,19 +32,33 @@
 
 ## About The Project
 
+Zendesk is a customer service tool that allows the creation and management of support tickets.
 
+Your company needs you to build a Ticket Viewer that will:
+
+● Connect to the Zendesk API
+
+● Request all the tickets for your account
+
+● Display them in a list
+
+● Display individual ticket details
+
+● Page through tickets when more than 25 are returned
 ### How to Run
+#### Project: 
+    py main.py
+    
+#### Unit test:
+    py test.py
 
-
-
-### How to use the software
 
 
 <!-- GETTING STARTED -->
 ## Getting Started
 
 ### Prerequisites
-A machine can run python3
+A machine can run python3 (version 3.9)
 
 ### Installation
 
