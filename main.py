@@ -1,6 +1,6 @@
 from prompt import Menu
 from API_call import API
-from datetime import datetime, date
+from datetime import datetime
 
 subdomain = "zendeskcodingchallenge2945"
 email = "phanthanhan2107@gmail.com"
@@ -57,8 +57,8 @@ elif (return_api_code == 200):
                             
                             else:
                                 print("You hit the end of the ticket's list. Press 2 to return to the previous page")
-                                i = number_of_subject 
-                                count = number_of_subject  
+                                i = number_of_subject +25
+                                count = number_of_subject+25  
                             i += 1
                         elif (prompt_input == '2'):
                             count -= 25

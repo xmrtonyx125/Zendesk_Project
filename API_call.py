@@ -1,11 +1,5 @@
 
 import requests
-from prompt import Menu
-from exception import ZendeskExceptions
-
-
-base_URL = "https://zendeskcodingchallenge2945.zendesk.com/api/v2/tickets.json"
-
 
 class API():
     def __init__(self) -> None:
@@ -14,14 +8,19 @@ class API():
 
     def get_response_code(self, subdomain, email, password ):
         '''
-           Function to get data from api 
+            Function to get data from api 
+
+            Arguments:
+                subdomain {string} -- enter by user
+                email {string}  -- enter by user
+                password {string}  -- enter by user
+
+            Return:
+                status_code {int} -- code return by api (200 == success, 401 == authentical error, 404 == not found domain)
+                subject, created_at, assignee_id, priority, status {list of string} -- fetched data from api 
 
         '''
-        subject = ""
-        created_at = "" 
-        assignee_id = "" 
-        priority = ""
-        status = ""
+        
         response = requests.get("https://" + subdomain + ".zendesk.com/api/v2/tickets.json", auth = (email, password))
         if (response.status_code == 200):
             data = response.json()
