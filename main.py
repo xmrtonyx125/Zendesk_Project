@@ -1,35 +1,54 @@
 from prompt import Menu
 from API_call import API
-from datetime import datetime, date
+from datetime import datetime
 
+subdomain = "zendeskcodingchallenge2945"
+email = "phanthanhan2107@gmail.com"
+password = "Xmrtonyxdjrun90@@"
 
 menu = Menu()
 api = API()
+#subdomain, email, password = menu.login_Prompt() 
 
-return_api_code, subject, created_at, assignee_id = api.get_response_code()
-number_of_subject = len(subject)
-number_of_created_at = len (created_at)
-for y in range(number_of_subject):
-    created_at[y] = str(datetime.strptime(created_at[y], '%Y-%m-%dT%H:%M:%SZ'))
-
-count = 0
-i= 0
+response = api.get_response_code(subdomain, email, password)
+subject = ""
+created_at = "" 
+assignee_id = "" 
+priority = ""
+status = ""
 user_input = ""
 prompt_input = ""
 option_2_input = ""
-if (return_api_code == 401):
+count = 0
+i= 0
+
+if (response.status_code == 401):
     menu.status_401()
 
-elif (return_api_code == 500):
+elif (response.status_code == 500):
     menu.status_500()
 
-elif (return_api_code == 200):
+elif (response.status_code == 200):
     menu.status_200()
+    data = response.json()
+    tickets = data['tickets']
+    subject =  [element['subject'] for element in tickets]
+    created_at = [element['created_at'] for element in tickets]
+    assignee_id = [element['assignee_id'] for element in tickets]
+    priority = [element['priority'] for element in tickets]
+    status = [element['status'] for element in tickets]
+
+    number_of_subject = len(subject)
+    number_of_created_at = len (created_at)
+    for y in range(number_of_subject):
+        created_at[y] = str(datetime.strptime(created_at[y], '%Y-%m-%dT%H:%M:%SZ'))
+        if (priority[y] == None):
+            priority[y] = 'None'
 
     while (user_input != 'menu' or user_input ==  'quit' or user_input == 'exit'):
         user_input = ""
-        menu.welcome_Prompt()
-        user_input  = input ("Your input: ") #type menu or quit
+        user_input = menu.welcome_Prompt()
+        
         print("\n")
         if user_input == 'menu':
             
@@ -49,7 +68,7 @@ elif (return_api_code == 200):
                             if (count >= 0 and count <= number_of_subject):
                                 for i in range (i, count):
                                     #print("i = ", i, "count = ", count)
-                                    print (f"{i+1 : <10}  {subject[i] : <52}  {created_at[i] : <25}  {assignee_id[i] : <20}")
+                                    print  (f"{i+1 : <10}  {subject[i] : <52} {created_at[i] : <25}  {assignee_id[i] : <20} {priority[i] : <15} {status[i] : <15}");
                             
                             else:
                                 print("You hit the end of the ticket's list. Press 2 to return to the previous page")
@@ -68,7 +87,7 @@ elif (return_api_code == 200):
                             elif (count >= 0 and count <= number_of_subject):
                                 for i in range (i, count):
                                     #print("i = ", i, "count = ", count)
-                                    print (f"{i+1 : <10}  {subject[i] : <52}  {created_at[i] : <25}  {assignee_id[i] : <20}")
+                                    print (f"{i+1 : <10}  {subject[i] : <52} {created_at[i] : <25}  {assignee_id[i] : <20} {priority[i] : <15} {status[i] : <12}")
                             
 
                         elif (prompt_input == 'quit' or prompt_input == 'exit'):
@@ -106,5 +125,5 @@ elif (return_api_code == 200):
 
 else:
     print("-" * 34)
-    print("| Login failed. Error code: ", return_api_code, "|")
+    print("| Login failed. Error code: ", response.status_code, "|")
     print("-" * 34)
