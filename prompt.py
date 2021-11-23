@@ -31,8 +31,6 @@ class Menu():
         print("*        WELCOME TO THE TICKET VIEWER           * ")
         print("*  Type 'menu' to view option or 'quit' to exit * ")
         print("*" * 49)
-        user_input  = input ("Your input: ") #type menu or quit
-        return user_input
 
     def login_Prompt(self):
         print("Enter your Zendesk account")

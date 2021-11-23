@@ -1,6 +1,6 @@
 from prompt import Menu
 from API_call import API
-from datetime import datetime
+from datetime import datetime, date
 
 subdomain = "zendeskcodingchallenge2945"
 email = "phanthanhan2107@gmail.com"
@@ -9,46 +9,31 @@ password = "Xmrtonyxdjrun90@@"
 menu = Menu()
 api = API()
 #subdomain, email, password = menu.login_Prompt() 
-
-response = api.get_response_code(subdomain, email, password)
-subject = ""
-created_at = "" 
-assignee_id = "" 
-priority = ""
-status = ""
+return_api_code, subject, created_at, assignee_id, priority, status = api.get_response_code(subdomain, email, password)
+number_of_subject = len(subject)
+number_of_created_at = len (created_at)
+for y in range(number_of_subject):
+    created_at[y] = str(datetime.strptime(created_at[y], '%Y-%m-%dT%H:%M:%SZ'))
+    if (priority[y] == None):
+        priority[y] = 'None'
+count = 0
+i= 0
 user_input = ""
 prompt_input = ""
 option_2_input = ""
-count = 0
-i= 0
-
-if (response.status_code == 401):
+if (return_api_code == 401):
     menu.status_401()
 
-elif (response.status_code == 500):
+elif (return_api_code == 500):
     menu.status_500()
 
-elif (response.status_code == 200):
+elif (return_api_code == 200):
     menu.status_200()
-    data = response.json()
-    tickets = data['tickets']
-    subject =  [element['subject'] for element in tickets]
-    created_at = [element['created_at'] for element in tickets]
-    assignee_id = [element['assignee_id'] for element in tickets]
-    priority = [element['priority'] for element in tickets]
-    status = [element['status'] for element in tickets]
-
-    number_of_subject = len(subject)
-    number_of_created_at = len (created_at)
-    for y in range(number_of_subject):
-        created_at[y] = str(datetime.strptime(created_at[y], '%Y-%m-%dT%H:%M:%SZ'))
-        if (priority[y] == None):
-            priority[y] = 'None'
 
     while (user_input != 'menu' or user_input ==  'quit' or user_input == 'exit'):
         user_input = ""
-        user_input = menu.welcome_Prompt()
-        
+        menu.welcome_Prompt()
+        user_input  = input ("Your input: ") #type menu or quit
         print("\n")
         if user_input == 'menu':
             
@@ -125,5 +110,5 @@ elif (response.status_code == 200):
 
 else:
     print("-" * 34)
-    print("| Login failed. Error code: ", response.status_code, "|")
+    print("| Login failed. Error code: ", return_api_code, "|")
     print("-" * 34)
