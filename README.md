@@ -1,6 +1,4 @@
 # Zendesk_Project
-# Team_alpha
-
 <!-- TABLE OF CONTENTS -->
 ## Table of Contents
 <details open="open">
