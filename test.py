@@ -22,7 +22,7 @@ class Test(unittest.TestCase):
         '''
             Function to test if an invalid email and password were given
 
-            return 401 code if can't authenticate ther user
+            return 401 code if can't authenticate their user
                 If not return 401 code, the email is valid
         '''
         return_api_code = api.get_response_code("zendeskcodingchallenge2945","fake@gmail.com", "TotallyReal")[0]
@@ -32,22 +32,34 @@ class Test(unittest.TestCase):
     def test_Login_success(self):
         '''
             Function to test with real login information
-            return 200 if the program can authenicate the user
-                else print the messeage as below
+            return 200 if the program can authenticate the user
+                else print the message as below
         '''
         return_api_code = api.get_response_code("zendeskcodingchallenge2945","phanthanhan2107@gmail.com", "Xmrtonyxdjrun90@@")[0]
         self.assertTrue(return_api_code == 200 , "Couldn't authenticate you")
 
     def test_num(self):
+        '''
+            Check if the input is a number
+        '''
         self.assertTrue(api.check_user_input('1') == True , "False case test_num")
 
     def test_str(self):
+        '''
+            Check if the input is a string
+        '''
         self.assertTrue(api.check_user_input('fdsjnfjndsfjnew') == False , "False case test_str")
 
     def test_float(self):
+        '''
+            Check if the input is a float number
+        '''
         self.assertTrue(api.check_user_input('1.5334433') == False , "False case test_float")
 
     def test_num_and_str(self):
+        '''
+            Check if the input is number + string
+        '''
         self.assertTrue(api.check_user_input('sdjbfhds773737373bjfnjfnjnf') == False , "False case test_num_and_float")
 
 if __name__ == '__main__':

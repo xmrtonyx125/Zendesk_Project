@@ -5,20 +5,21 @@ class Menu():
 
     def printMenu(self):
         '''
-            Function priting menu to see the ticket
+            Function printing menu to see the ticket
             Return none
         '''
-        print("*" * 37)
-        print("Select view options:                *")
-        print(" * Press 1 to view all tickets      *")
-        print(" * Press 2 to view a ticket         *")
-        print(" * Type 'quit' to exit              *")
-        print("*" * 37)
+        print("_" * 37)
+        print("|    ---MAIN PAGE---               |")
+        print("| Select view options:             |")
+        print("| Press 1 to view all tickets      |")
+        print("| Press 2 to view a ticket         |")
+        print("| Type 'quit' to exit              |")
+        print("-" * 37)
 
 
     def exit_Prompt(self):
         '''
-            Function priting the good-bye messeage to the user
+            Function printing the good-bye message to the user
             Return none
         '''
         print("*" * 38)
@@ -32,14 +33,14 @@ class Menu():
             Return none
         '''
         print("\n")
-        print("*" * 33)
-        print("*  Please choose from the menu  *")
-        print("*" * 33)
+        print("." * 33)
+        print(".  Please choose from the menu  .")
+        print("." * 33)
         print("\n")
         
     def welcome_Prompt(self):
         '''
-            Function priting welcome messeage 
+            Function printing welcome message 
             Return non
         '''
         print("\n")
@@ -95,10 +96,11 @@ class Menu():
             Return none
         '''
         print("*" * 54)
+        print("*          --- OPTION 1 MENU---                      *")
         print("*    ALL TICKETS LOADED. Choose from options below   *")
-        print("*    Press 1 or 'next' to view the next page         *")
-        print("*    Press 2 or 'prev' to view the previous page     *")
-        print("*    Press 3 or 'home' to return to main page        *")
+        print("*    Press 1 to view the next page                   *")
+        print("*    Press 2 to view the previous page               *")
+        print("*    Press 3 to return to main page                  *")
         print("*    Type 'quit' to exit                             *")
         print("*" * 54)
 
@@ -110,3 +112,9 @@ class Menu():
         '''
         print(f"Ticket ID   Subject { ' ' * 45} Created At { ' ' * 15} Assigned By { ' ' * 7} Priority { ' ' * 5} Status")
         print("_" * 140)
+
+    def search_again(self):
+        print("_" * 4)
+        yes_no = input ("Search again (y/n):  ")  
+        print("\n")
+        return yes_no

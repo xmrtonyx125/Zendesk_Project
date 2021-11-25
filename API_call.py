@@ -46,6 +46,11 @@ class API():
                 requester_id, submitter_id, description)
 
     def check_user_input(self, input):
+        '''
+            Check if the input of the user IS a number
+            return True if it is a number
+            return False if it is not a number (float, string, or number+string)
+        '''
         if input.isdigit():
             return True;
         return False

@@ -80,6 +80,11 @@ elif (return_api_code == 200):
                         elif (prompt_input == 'quit' or prompt_input == 'exit'):
                                 menu.exit_Prompt()  # Good-bye message
                                 exit(1)
+
+                        elif prompt_input == '3': continue
+                        
+                        else:
+                            menu.error_option()
                                 
                         print('\n')    
                     
@@ -93,18 +98,30 @@ elif (return_api_code == 200):
                             break
                         increase_tick_num = ticket_number-1
                         if (ticket_number < 0 or ticket_number > number_of_subject):
+                            print("----")
                             print(f"Out of range. Choose from 1 to {number_of_subject}")
-                            break
-                        #menu.display()
-                        #print (f"{ticket_number : <10}  {subject[increase_tick_num] : <52}  {created_at[increase_tick_num] : <25}  {assignee_id[increase_tick_num] : <20}")
+                            print("----")
+                            continue
+                        
                         print (f" Ticket ID: {ticket_number} with subject '{subject[increase_tick_num]}' created at {created_at[increase_tick_num]} by customer {requester_id[increase_tick_num]}.")
                         print (f" The ticket has been assign to {assignee_id[increase_tick_num]}. ")
-                        print (f"-----")
+                        print (f"????")
                         print (f" Ticket description: '{description[increase_tick_num]}' ")
-                        print (f"-----")
+                        print (f"????")
                         print ('\n')
+                        #break
+                        yes_no = menu.search_again()
+                        if (yes_no == 'n' or yes_no == 'no'):
+                            break
+                        elif (yes_no == 'y' or yes_no == 'yes'):
+                            continue
+                        else:
+                            menu.error_option()
+                    
+                    
+                    else:
+                        menu.error_option()
                         break
-                
                 menu.printMenu()
                 menu_input = input ("Your input: ")
                 print("\n")
