@@ -63,15 +63,31 @@ A machine can run python3 (version 3.9)
 ### Installation
 
 #### For Deverlopers:
-   Zendesk's API 
-
+   Zendesk's API: https://" + {subdomain} + ".zendesk.com/api/v2/tickets.json
+   
+   You'll need to replace the {subdomain}. Valid login information such as email and password will be required to use the program 
 
 #### Install 
+
+  Install [pip](https://pip.pypa.io/en/stable/installation/)
+  
   requests --- python -m pip install requests
   
+  python3 (version 3.9)
 
 
 ## Usage
+### Login Prompt
+![image](https://user-images.githubusercontent.com/69742686/143378524-e902f041-1791-402f-86f5-5a1d19ded89b.png)
+
+### Login successfully
+![image](https://user-images.githubusercontent.com/69742686/143379017-a4ef3b8c-dcff-4ce1-899d-6e50e04ac235.png)
+
+### List all tickets (25 tickets per page)
+![image](https://user-images.githubusercontent.com/69742686/143379206-a3731eb7-471d-4fa4-bb42-2e1844819724.png)
+
+### Show a ticket (detailed)
+![image](https://user-images.githubusercontent.com/69742686/143379285-69367e93-b853-4fb8-b10f-18f8cd01443e.png)
 
 
 ## Contact
