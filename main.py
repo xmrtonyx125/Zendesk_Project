@@ -9,7 +9,9 @@ password = "Xmrtonyxdjrun90@@"
 menu = Menu()
 api = API()
 #subdomain, email, password = menu.login_Prompt() 
-return_api_code, subject, created_at, assignee_id, priority, status = api.get_response_code(subdomain, email, password)
+(return_api_code, subject, created_at, assignee_id, 
+priority, status, requester_id, submitter_id, description) = api.get_response_code(subdomain, email, password)
+
 number_of_subject = len(subject)
 number_of_created_at = len (created_at)
 for y in range(number_of_subject):
@@ -53,7 +55,7 @@ elif (return_api_code == 200):
                             if (count >= 0 and count <= number_of_subject):
                                 for i in range (i, count):
                                     #print("i = ", i, "count = ", count)
-                                    print  (f"{i+1 : <10}  {subject[i] : <52} {created_at[i] : <25}  {assignee_id[i] : <20} {priority[i] : <15} {status[i] : <15}");
+                                    print  (f"{i+1 : <10}  {subject[i] : <52} {created_at[i] : <25}  {assignee_id[i] : <20} {priority[i] : <15} {status[i] : <15}")
                             
                             else:
                                 print("You hit the end of the ticket's list. Press 2 to return to the previous page")
@@ -84,14 +86,23 @@ elif (return_api_code == 200):
                     elif menu_input == '2':
                         option_2_input = ""
                         ticket_number = input("Enter a ticket number: ")
-                        ticket_number = int(ticket_number)
+                        if (api.check_user_input(ticket_number) == True):
+                            ticket_number = int(ticket_number) #  cast to type int for position of the list
+                        else:      # if it not a digit, break the loop
+                            print(f"Input {ticket_number} is not valid. It must be an integer\n")
+                            break
                         increase_tick_num = ticket_number-1
                         if (ticket_number < 0 or ticket_number > number_of_subject):
                             print(f"Out of range. Choose from 1 to {number_of_subject}")
                             break
-                        menu.display()
-                        print (f"{ticket_number : <10}  {subject[increase_tick_num] : <52}  {created_at[increase_tick_num] : <25}  {assignee_id[increase_tick_num] : <20}")
-                        print('\n')
+                        #menu.display()
+                        #print (f"{ticket_number : <10}  {subject[increase_tick_num] : <52}  {created_at[increase_tick_num] : <25}  {assignee_id[increase_tick_num] : <20}")
+                        print (f" Ticket ID: {ticket_number} with subject '{subject[increase_tick_num]}' created at {created_at[increase_tick_num]} by customer {requester_id[increase_tick_num]}.")
+                        print (f" The ticket has been assign to {assignee_id[increase_tick_num]}. ")
+                        print (f"-----")
+                        print (f" Ticket description: '{description[increase_tick_num]}' ")
+                        print (f"-----")
+                        print ('\n')
                         break
                 
                 menu.printMenu()

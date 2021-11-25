@@ -38,6 +38,17 @@ class Test(unittest.TestCase):
         return_api_code = api.get_response_code("zendeskcodingchallenge2945","phanthanhan2107@gmail.com", "Xmrtonyxdjrun90@@")[0]
         self.assertTrue(return_api_code == 200 , "Couldn't authenticate you")
 
+    def test_num(self):
+        self.assertTrue(api.check_user_input('1') == True , "False case test_num")
+
+    def test_str(self):
+        self.assertTrue(api.check_user_input('fdsjnfjndsfjnew') == False , "False case test_str")
+
+    def test_float(self):
+        self.assertTrue(api.check_user_input('1.5334433') == False , "False case test_float")
+
+    def test_num_and_str(self):
+        self.assertTrue(api.check_user_input('sdjbfhds773737373bjfnjfnjnf') == False , "False case test_num_and_float")
 
 if __name__ == '__main__':
     unittest.main()

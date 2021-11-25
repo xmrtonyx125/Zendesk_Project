@@ -20,7 +20,14 @@ class API():
                 subject, created_at, assignee_id, priority, status {list of string} -- fetched data from api 
 
         '''
-        
+        subject =  ""
+        created_at = ""
+        assignee_id = ""
+        priority = ""
+        status = ""
+        requester_id = "" 
+        submitter_id = ""
+        description = ""
         response = requests.get("https://" + subdomain + ".zendesk.com/api/v2/tickets.json", auth = (email, password))
         if (response.status_code == 200):
             data = response.json()
@@ -30,5 +37,15 @@ class API():
             assignee_id = [element['assignee_id'] for element in tickets]
             priority = [element['priority'] for element in tickets]
             status = [element['status'] for element in tickets]
-    
-        return response.status_code, subject, created_at, assignee_id, priority, status
+            requester_id = [element['requester_id'] for element in tickets]
+            submitter_id = [element['submitter_id'] for element in tickets]
+            description = [element['description'] for element in tickets]
+
+        return (response.status_code, subject, 
+                created_at, assignee_id, priority, status,
+                requester_id, submitter_id, description)
+
+    def check_user_input(self, input):
+        if input.isdigit():
+            return True;
+        return False
