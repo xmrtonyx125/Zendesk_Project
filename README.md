@@ -9,7 +9,6 @@
       <a href="#about-the-project">About The Project</a>
       <ul>
         <li><a href=#how-to-run>How to Run</a></li>
-        <li><a href=#how-to-use-the-software>How to use the software</a></li>
       </ul>
     </li>
     <li>
