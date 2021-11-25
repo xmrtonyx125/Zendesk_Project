@@ -6,6 +6,11 @@ from datetime import datetime
 menu = Menu()
 api = API()
 subdomain, email, password = menu.login_Prompt() 
+
+if subdomain == "" or email == "" or password == "":
+    print(f"Subdomain, email or password need to be fill\n")
+    exit(1)
+
 (return_api_code, subject, created_at, assignee_id, 
 priority, status, requester_id, submitter_id, description) = api.get_response_code(subdomain, email, password)
 
