@@ -64,7 +64,9 @@ A machine can run python3 (version 3.9)
 #### For Deverlopers:
    Zendesk's API: https://" + {subdomain} + ".zendesk.com/api/v2/tickets.json
    
-   You'll need to replace the {subdomain}. Valid login information such as email and password will be required to use the program 
+   You'll need to replace the {subdomain}. Valid login information such as email and password will be required to use the API
+   
+   Create Zendesk account [here](https://www.zendesk.com/register)
 
 #### Install 
 
