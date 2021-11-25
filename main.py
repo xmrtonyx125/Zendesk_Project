@@ -2,13 +2,10 @@ from prompt import Menu
 from API_call import API
 from datetime import datetime
 
-subdomain = "zendeskcodingchallenge2945"
-email = "phanthanhan2107@gmail.com"
-password = "Xmrtonyxdjrun90@@"
 
 menu = Menu()
 api = API()
-#subdomain, email, password = menu.login_Prompt() 
+subdomain, email, password = menu.login_Prompt() 
 (return_api_code, subject, created_at, assignee_id, 
 priority, status, requester_id, submitter_id, description) = api.get_response_code(subdomain, email, password)
 
